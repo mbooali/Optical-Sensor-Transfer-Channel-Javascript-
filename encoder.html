@@ -37,6 +37,7 @@ By Maziar Aboualizadeh, contact me at mbooali@gmail.com
     function message_decoder(data) {
 
       i = 0;
+      var total_delay_between_bits = 1000;
       if(running != null)
       {
         clearInterval(running);
@@ -56,7 +57,7 @@ By Maziar Aboualizadeh, contact me at mbooali@gmail.com
             }
             i++;
           }
-        }, 500);
+        }, total_delay_between_bits);
       // for(i = 0; i < data.length; i++)
       // {
       //   if(data[i] == '0')
