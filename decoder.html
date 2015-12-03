@@ -32,13 +32,13 @@
   (function($) {
     var options = {};
     var oldx = 0;
-    var direction = "";
-    var stop_timeout = false;
-    var stop_check_time = 150;
+    var direction = "";         //used for detection of stop
+    var stop_timeout = false;   //if true trigger the appropriate signal when the mouse has stopped
+    var stop_check_time = 150;  //
     $.mousedirection = function(opts) {
       var defaults = {};
-      options = $.extend(defaults, opts);
-      $(document).bind("mousemove", function(e) {
+      options = $.extend(defaults, opts);   //this function update the mouse direction after each movement
+      $(document).bind("mousemove", function(e) {   //bind the function to the dive
         var activeElement = e.target || e.srcElement;
         if (e.pageX > oldx) {
           // direction = "right";
@@ -70,8 +70,7 @@
 
   $(function() {
     $.mousedirection();
-    $(".container").bind("mousedirection", function(e) {
-      // $(this).html("Mouse Direction: <b>" + e.direction + "</b>");
+    $(".container").bind("mousedirection", function(e) {  //bind the function to div with "container" css class
       $(this).html("Message Received: <div style='word-wrap: break-word'>" + message + "</div>");
     });
   });

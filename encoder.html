@@ -34,7 +34,7 @@ By Maziar Aboualizadeh, contact me at mbooali@gmail.com
       }
     }
 
-    function message_decoder(data) {
+    function message_decoder(data) {  //decode message's bits into the pattern movement
 
       i = 0;
       var total_delay_between_bits = 1000;
@@ -43,7 +43,7 @@ By Maziar Aboualizadeh, contact me at mbooali@gmail.com
         clearInterval(running);
         console.log("restart periodic render function");
       }
-      running = setInterval(
+      running = setInterval(  //each bit takes equal to "total_delay_between_bits" to be done
         function(){
           if(i >= 0 && i < data.length)
           {
@@ -58,25 +58,18 @@ By Maziar Aboualizadeh, contact me at mbooali@gmail.com
             i++;
           }
         }, total_delay_between_bits);
-      // for(i = 0; i < data.length; i++)
-      // {
-      //   if(data[i] == '0')
-      //   {
-      //   }
-      //   // move_pattern(data[i]);
-      // }
     }
 
-    function move_pattern(direction) {
-      if(direction == '0'){   //move the pattern LEFT to simulate mouse moving RIGHT
-        $('#pattern-area').delay( 800 ).css('background-position', '-50px 0px');
-        console.log('move left');
-      }
-      else if(direction == '1'){  //move the pattern RIGHT to simulate mouse moving LEFT
-        $('#pattern-area').delay( 800 ).css('background-position', '50px 0px');
-        console.log('move right');
-      }
-    }
+    // function move_pattern(direction) {
+    //   if(direction == '0'){   //move the pattern LEFT to simulate mouse moving RIGHT
+    //     $('#pattern-area').delay( 800 ).css('background-position', '-50px 0px');
+    //     console.log('move left');
+    //   }
+    //   else if(direction == '1'){  //move the pattern RIGHT to simulate mouse moving LEFT
+    //     $('#pattern-area').delay( 800 ).css('background-position', '50px 0px');
+    //     console.log('move right');
+    //   }
+    // }
     var current_pattern = 2;
     var total_number_patterns = 4;
 
@@ -99,11 +92,8 @@ By Maziar Aboualizadeh, contact me at mbooali@gmail.com
     <br><br><br>
 
     <div class="pattern-area" id="pattern-area">
-
     </div>
-
   </div>
-
 </body>
 
 
